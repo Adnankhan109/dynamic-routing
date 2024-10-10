@@ -3,40 +3,36 @@ import Link from "next/link";
 
 const countries = [
   {
-    name:"Canada",
-    population : 37742154,
-    capital:"Ottawa",
+    name: "Canada",
+    population: 37742154,
+    capital: "Ottawa",
     flag: "/images/canada-flag.png"
   },
-
   {
-    name:"Pakistan",
-    population : 241492917,
-    capital:"Islamabad",
-    flag:"/images/pakistan-flag.png"
-
-
+    name: "Pakistan",
+    population: 241492917,
+    capital: "Islamabad",
+    flag: "/images/pakistan-flag.png"
   },
-  { 
-    name: 'Japan', 
-    population: 125960000, 
-    capital: 'Tokyo', 
-    flag: '/images/japan-flag.png'  // Flag image path
+  {
+    name: "Japan",
+    population: 125960000,
+    capital: "Tokyo",
+    flag: "/images/japan-flag.png"
   },
-  { 
-    name: 'Germany', 
-    population: 83240525, 
-    capital: 'Berlin', 
-    flag: '/images/germany-flag.png'  // Flag image path
+  {
+    name: "Germany",
+    population: 83240525,
+    capital: "Berlin",
+    flag: "/images/germany-flag.png"
   },
-  { 
-    name: 'India', 
-    population: 1393409038, 
-    capital: 'New Delhi', 
-    flag: '/images/india-flag.png'  // Flag image path
+  {
+    name: "India",
+    population: 1393409038,
+    capital: "New Delhi",
+    flag: "/images/india-flag.png"
   },
 ]; 
-
 
 export default function Home() {
   return (
@@ -60,7 +56,6 @@ export default function Home() {
             </li>
           ))}
         </ol>
-        
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a
@@ -76,7 +71,7 @@ export default function Home() {
             width={16}
             height={16}
           />
-          Develop By Adnan Khan 
+          Developed By Adnan Khan 
         </a>
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
@@ -106,7 +101,7 @@ export default function Home() {
             width={16}
             height={16}
           />
-         Github Source Code
+          Github Source Code
         </a>
       </footer>
     </div>

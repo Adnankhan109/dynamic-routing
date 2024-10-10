@@ -1,5 +1,9 @@
-import { useRouter } from 'next/navigation'; // Correct import for Next.js App Router
-import Link from 'next/link';
+import Image from "next/image"; // Use Next.js Image component
+import Link from "next/link";
+
+interface Params {
+  country_name: string;
+}
 
 const countries = [
   {
@@ -34,7 +38,7 @@ const countries = [
   },
 ];
 
-export default function CountryPage({ params }) { 
+export default function CountryPage({ params }: { params: Params }) { 
   const { country_name } = params; 
 
   const country = countries.find(
@@ -44,40 +48,42 @@ export default function CountryPage({ params }) {
   if (!country) {
     return (
       <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-      <h1  className="text-red-500 text-2xl text-center mt-5 font-bold" >Oops! Country Not Found!</h1>
-      <Link href="/">
-        <button className="mt-4 bg-red-500 text-white  justify-items-center px-4 py-2 rounded hover:bg-blue-600">
-          Go to Home
-        </button>
-      </Link>
-      </main>
+        <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+          <h1 className="text-red-500 text-2xl text-center mt-5 font-bold">
+            Oops! Country Not Found!
+          </h1>
+          <Link href="/">
+            <button className="mt-4 bg-red-500 text-white justify-items-center px-4 py-2 rounded hover:bg-blue-600">
+              Go to Home
+            </button>
+          </Link>
+        </main>
       </div>
     ); 
   } else {
     return (
       <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-      <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-        <li className="mb-2">
-          <strong>Country:</strong> {country.name}
-        </li>
-        <li className="mb-2">
-          <strong>Population:</strong> {country.population}
-        </li>
-        <li className="mb-2">
-          <strong>Capital:</strong> {country.capital}
-        </li>
-        <li className="mb-2">
-          <img src={country.flag} alt={`${country.name} flag`} width={100} />
-        </li>
-      </ol>
-      <Link href="/">
-        <button className="mt-4 bg-red-500 text-white  justify-items-center px-4 py-2 rounded hover:bg-blue-600">
-          Go to Home
-        </button>
-      </Link>
-      </main>
+        <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+          <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
+            <li className="mb-2">
+              <strong>Country:</strong> {country.name}
+            </li>
+            <li className="mb-2">
+              <strong>Population:</strong> {country.population}
+            </li>
+            <li className="mb-2">
+              <strong>Capital:</strong> {country.capital}
+            </li>
+            <li className="mb-2">
+              <Image src={country.flag} alt={`${country.name} flag`} width={100} height={66} /> {/* Use Image component */}
+            </li>
+          </ol>
+          <Link href="/">
+            <button className="mt-4 bg-red-500 text-white justify-items-center px-4 py-2 rounded hover:bg-blue-600">
+              Go to Home
+            </button>
+          </Link>
+        </main>
       </div>
     );
   }
